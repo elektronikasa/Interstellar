@@ -111,6 +111,7 @@ module.exports = env => {
     },
     devtool: 'source-map',
     plugins: [
+      new CleanWebpackPlugin(),
       new NunjucksWebpackPlugin({
         templates: nunjuckspages
       }),
@@ -121,6 +122,12 @@ module.exports = env => {
       new BrowserSyncPlugin({
         host: 'localhost',
         port: 3000,
+        cors: true,
+        injectChanges: false,
+        watchOptions: {
+          // ignoreInitial: true,
+          // ignored: '*.map'
+        },
         server: { baseDir: ['dist'] }
       }),
       new ExtraWatchWebpackPlugin({
@@ -128,9 +135,10 @@ module.exports = env => {
       }),
       new CopyWebpackPlugin([
         // copyUmodified is true because of https://github.com/webpack-contrib/copy-webpack-plugin/pull/360
-        { from: 'assets/**/*', to: '.' }
-      ], { copyUnmodified: true }),
-      new CleanWebpackPlugin()
+        { from: 'assets/**/*', to: '.' },
+        { from: '../developer-dashboard/', to: './developer-dashboard/' },
+        { from: '../developer-dashboard/src/assets/img', to: './assets/img' }
+      ], { copyUnmodified: true })
     ],
     optimization: {
       minimizer: [
