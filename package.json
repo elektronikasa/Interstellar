@@ -25,10 +25,12 @@
     "private": true,
     "scripts": {
         "debug": "webpack-dev-server --config webpack.dev.js",
-        "dev": "webpack-dashboard -- webpack-dev-server --config webpack.dev.js",
+        "dev": "npm-run-all --parallel dev:*",
+        "dev:docs": "vuepress dev docs",
+        "dev:app": "(webpack-dashboard -- webpack-dev-server --config webpack.dev.js) && vuepress dev docs",
         "build": "webpack --config webpack.prod.js --progress --hide-modules",
         "styleguide": "vue-styleguidist server",
-        "styleguide:build": "vue-styleguidist build"
+        "docs:build": "vuepress build docs"
     },
     "browserslist": {
         "production": [
@@ -120,6 +122,7 @@
         "axios": "^0.18.0",
         "core-js": "^2.6.5",
         "material-icons": "^0.3.1",
+        "npm-run-all": "^4.1.5",
         "open": "^6.3.0",
         "open-browser-webpack-plugin": "^0.0.5",
         "opn-cli": "^5.0.0",
@@ -127,6 +130,7 @@
         "tailwindcss": "^1.0.0",
         "vue": "^2.5.17",
         "vue-confetti": "^0.4.2",
+        "vuepress": "^1.0.1",
         "vuesax": "^3.8.75",
         "webpack-jarvis": "^0.3.2"
     }

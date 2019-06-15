@@ -2,3 +2,5 @@ node_modules
 developer-dashboard
 .idea
 web
+docs/.vuepress/dist
+docs
