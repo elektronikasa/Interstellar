@@ -15,7 +15,7 @@
     "@vue/cli-ui-addon-widgets": "^3.8.4",
     "algoliasearch": "^3.32.0",
     "apexcharts": "^3.6.5",
-    "auth0-js": "^9.10.1",
+    "auth0-js": "^9.13.2",
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
     "core-js": "^2.5.7",
